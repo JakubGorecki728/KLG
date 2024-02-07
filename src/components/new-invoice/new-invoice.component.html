@@ -1,0 +1,42 @@
+
+<form [formGroup]="form">
+    <ng-container formArrayName="items">
+        @for (item of form.controls.items.controls; track $index) {
+            <div [formGroup]="item">
+
+                <mat-form-field>
+                    <mat-label>Name</mat-label>
+                    <input formControlName="name" matInput>
+                    <mat-error>{{ item.controls.name.errors | validationErrorDisplay : 'name' }}</mat-error>
+                </mat-form-field>
+
+                <mat-form-field>
+                    <mat-label>Count</mat-label>
+                    <input formControlName="count" matInput>
+                    <mat-error>{{ item.controls.count.errors | validationErrorDisplay : 'count' }}</mat-error>
+                </mat-form-field>
+
+                <mat-form-field>
+                    <mat-label>Price</mat-label>
+                    <input formControlName="price" matInput>
+                    <mat-error>{{ item.controls.price.errors | validationErrorDisplay : 'price' }}</mat-error>
+                </mat-form-field>
+
+                <button mat-icon-button color="primary" (click)="deleteRow($index)">
+                    <mat-icon>delete</mat-icon>
+                  </button>
+            </div>
+        }
+
+    </ng-container>
+</form>
+
+<br>
+
+<button mat-button color="primary" (click)="addRow()"><mat-icon>add</mat-icon>Add new item</button>
+
+<br>
+<br>
+
+<button mat-raised-button color="primary" (click)="onSubmit()">Submit</button>
+

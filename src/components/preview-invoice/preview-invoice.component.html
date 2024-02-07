@@ -1,0 +1,13 @@
+@if($companyData | async; as companyData) {
+    <h1>{{ companyData.name }}</h1>
+    <h2>{{ companyData.address }}</h2>
+    <p>{{ companyData.phones.join(', ') }}</p>
+}
+
+<mat-divider></mat-divider>
+
+@if(invoices) {
+    {{ invoices | json }}
+} @else {
+    No items
+}
