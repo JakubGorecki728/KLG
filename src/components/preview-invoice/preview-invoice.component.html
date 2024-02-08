@@ -7,7 +7,7 @@
 <mat-divider></mat-divider>
 
 @if(invoices) {
-    {{ invoices | json }}
+    <app-invoices-table [invoices]="invoices"/>
 } @else {
     No items
 }
