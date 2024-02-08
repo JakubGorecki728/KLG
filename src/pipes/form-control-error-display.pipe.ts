@@ -41,7 +41,7 @@ export class ValidationErrorDisplayPipe implements PipeTransform {
 
     const message: ErrorMsgMap = {
       minlength: e => `Min length ${e.requiredLength}`,
-      maxlength: e => `Max length ${e.actualLength}`,
+      maxlength: e => `Max length ${e.requiredLength}`,
       max: e => `Max ${e.max}`,
       min: e => `Min ${e.min}`,
       required: () => `Please enter ${label}`,
